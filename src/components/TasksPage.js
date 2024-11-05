@@ -14,6 +14,7 @@ class TasksPage extends Component {
   }
 
   onTitleChange = e => {
+    console.log(e.target.value);
     this.setState({ title: e.target.value });
   }
 
@@ -58,6 +59,13 @@ class TasksPage extends Component {
   }
 
   render() {
+    if (this.props.isLoading) {
+      return (
+        <div className="tasks-loading">
+          Loading...
+        </div>
+      );
+    }
     return (
       <div className="task-list">
         <div className="task-list-header">
